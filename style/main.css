@@ -1,0 +1,92 @@
+/*------------ FONTS SETUP ----------------*/
+body {
+    margin: 0;
+    font-family: 'Baloo Paaji 2', cursive;
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 700;
+    color: darkred;
+    font-size: 45px;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.card {
+    position: relative;
+    width: 41.667vw;
+    padding: 10px;
+    margin: 70px auto;
+    text-align: left;
+    box-shadow: 0px 1px 20px #888888;
+}
+
+.card h2, .card h1 {
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.card h1, .card hr {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.card .temperature {
+    position: absolute;
+    left: 70%;
+    top: 5%;
+    font-size: 3.750vw;
+}
+
+.card img {
+    position: absolute;
+    left: 77%;
+    top: 32%;
+    width: 80px;
+}
+
+.card p {
+    text-align: center;
+}
+
+.card #conditions {
+    margin-bottom: 0;
+}
+
+.card #FeelsLike {
+    margin-top: 0;
+}
+
+/*------------------- MEDIA QUERIES ------------------------*/
+/* Medium devices */
+@media (max-width: 900px) {
+    .card {
+        width: 70vw;
+        margin: 70px auto;
+    }
+
+    .card img {
+        left: 72%;
+        top: 18%;
+        width: 100px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 600px) {
+    .card {
+        width: 90vw;
+        margin: 70px auto;
+    }
+
+    .card .temperature {
+        font-size: 6.75vw;
+    }
+
+    .card img {
+        width: 80px;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather</title>
+    <link rel="icon" type="image/x-icon" href="images/sun.png"/><!--Icon made by Freepik from www.flaticon.com-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style/main.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600;700&display=swap" rel="stylesheet"><!--Google Fonts in case the PressStartk doesn't upload-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Weather in...</h2>
+        <h1 id="location"></h1>
+        <hr>
+        <p id="conditions"></p>
+        <p id="FeelsLike"></p>
+        <div class="temperature" id="temperature"></div>
+        <div id="icon"></div>
+    </div>
+
+    <script>
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=e58cc87201b9e85b47c6ad90bb23f1e4&units=metric";
+
+        $(document).ready(function(){
+            $.getJSON(url ,function(data){
+                console.log(data);
+                // Create variables to help with setting html contents
+                // Look at the console to see the structure of the "data" parameter
+                // create a variable for the "conditions"
+                var conditions = data.weather[0].main;
+                // create a variable for the "temperature"
+                var temperature = data.main.temp;
+                // create a location variable
+                var location = data.name;
+                // create a icon variable
+                var icon = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";
+                // created two extra variables for the 'feels like' and 'humidity' data
+                var feelsLike = data.main.feels_like;
+                var huminity = data.main.humidity;
+                // Print the variables in the respective elements
+                $('#conditions').html("The weather in "+ location + " is currently: <strong>" + conditions + "</strong>");
+                $('#temperature').html(temperature + " 	&#176;C");
+                $('#location').html(location);
+                $('#icon').html("<img src='"+icon+"'/>");
+                $('#FeelsLike').html(" and it feels like: <strong>" + feelsLike + "</strong> with a huminity of: <strong>" + huminity + "</strong>");
+            }
+        );
+        });
+    </script>
+
+</body>
+
+</html>
